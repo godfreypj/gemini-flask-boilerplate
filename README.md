@@ -5,7 +5,7 @@ This application is based entirely off of [Google's Project IDX](https://idx.dev
 
 ## 🍄 Flask:
 This app is a very simple Flask API. It's broken into 2 sections:
-### - `main`
+### 🚗 `main`
 #### `/`
 The main route will automatically load up the swagger ui docs.
 
@@ -15,7 +15,7 @@ The `generate` route will take the prompt & training data (provided separately) 
 #### `/<path:path>`
 This is the built in route to serve static files from the `web` directory. Check out `/health.html` for an example.
 
-### - `utils`
+### 🛠️ `utils`
 Main needs these functions to do its job:
 - `load_prompt`
     - The expectation is that you supply a prompt in the form of a `.txt` file in the `data` directory. This will read in the prompt and add in expected response format.

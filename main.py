@@ -13,14 +13,13 @@ load_dotenv()
 API_KEY = os.environ.get('API_KEY', 'TODO')
 MODEL = os.environ.get('MODEL', 'gemini-1.5-flash')
 genai.configure(api_key=API_KEY)
-print(API_KEY)
 
 app = Flask(__name__, template_folder='web')
 
 # Swagger
 @app.route('/')
 def home():
-    return render_template('index.html')  # This assumes index.html is in a 'templates' folder
+    return render_template('index.html')
 
 @app.route("/api/generate", methods=["GET"])
 def generate_api():
@@ -58,7 +57,6 @@ def generate_api():
         actual_data = parsed_data.get("data")
         return jsonify({"text": actual_data}), 200, {'Content-Type': 'application/json'}
     except Exception as e:
-        print("JSON Parsing Error:", e)
         with app.app_context():
             return jsonify({ "error": str(e) })
 
